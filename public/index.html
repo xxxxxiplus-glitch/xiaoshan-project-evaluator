@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>5213 项目自主评估</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">国际孵化器项目投资评估</p>
+        <h1>5213 项目自主评估</h1>
+      </div>
+      <div class="topbar__meta">
+        <span>自主初筛</span>
+        <span>萧山落地</span>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <section class="workspace" aria-label="项目评估工作台">
+        <form id="evaluationForm" class="evaluation-form">
+          <section class="form-section">
+            <div class="section-heading">
+              <span>01</span>
+              <h2>文件上传</h2>
+            </div>
+            <div class="upload-zone" id="uploadZone">
+              <input id="projectFiles" name="projectFiles" type="file" multiple />
+              <div>
+                <strong>上传 BP、评估表或项目材料</strong>
+                <p>系统会读取文件内容，尝试自动填充姓名、学历、专利数、论文数等字段。</p>
+              </div>
+              <label class="upload-button" for="projectFiles">选择文件</label>
+            </div>
+            <div class="upload-status" aria-live="polite">
+              <span id="uploadStatusDot" class="status-dot"></span>
+              <span id="uploadStatusText">待上传</span>
+            </div>
+            <div id="fileList" class="file-list" aria-label="已上传文件"></div>
+          </section>
+
+          <section class="form-section">
+            <div class="section-heading">
+              <span>02</span>
+              <h2>申报人基础信息</h2>
+            </div>
+            <div class="field-grid">
+              <label>
+                <span>姓名</span>
+                <input id="founderName" name="founderName" autocomplete="name" placeholder="请输入申报人姓名" />
+              </label>
+              <label>
+                <span>出生年</span>
+                <input id="birthYear" name="birthYear" inputmode="numeric" placeholder="例如 1988" />
+              </label>
+              <label>
+                <span>年龄</span>
+                <input id="age" name="age" inputmode="numeric" placeholder="根据出生年自动计算" readonly />
+              </label>
+              <label>
+                <span>学历</span>
+                <select id="education" name="education">
+                  <option value="">请选择</option>
+                  <option>博士</option>
+                  <option>硕士</option>
+                  <option>本科</option>
+                  <option>其他</option>
+                </select>
+              </label>
+              <label>
+                <span>海外经历（年）</span>
+                <input id="overseasYears" name="overseasYears" inputmode="decimal" placeholder="例如 3" />
+              </label>
+              <label>
+                <span>职务</span>
+                <input id="role" name="role" placeholder="例如 创始人 / CEO / CTO" />
+              </label>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="section-heading">
+              <span>03</span>
+              <h2>团队与企业</h2>
+            </div>
+            <div class="field-grid">
+              <label>
+                <span>核心成员（人，不含申报人）</span>
+                <input id="coreMembers" name="coreMembers" inputmode="numeric" placeholder="填写 2 即满足团队总人数 3 人" />
+              </label>
+              <label>
+                <span>团队平均年龄</span>
+                <input id="teamAverageAge" name="teamAverageAge" inputmode="numeric" placeholder="例如 34" />
+              </label>
+              <label>
+                <span>企业状态</span>
+                <select id="companyStatus" name="companyStatus">
+                  <option value="">请选择</option>
+                  <option>已注册</option>
+                  <option>拟落地</option>
+                </select>
+              </label>
+              <label>
+                <span>持股（%）</span>
+                <input id="shareholding" name="shareholding" inputmode="decimal" placeholder="不少于 20%" />
+              </label>
+              <label class="switch-field">
+                <input id="isLargestShareholder" name="isLargestShareholder" type="checkbox" />
+                <span>申报人为第一大股东</span>
+              </label>
+              <label class="switch-field">
+                <input id="canPaySocialSecurity" name="canPaySocialSecurity" type="checkbox" />
+                <span>可在萧山区缴纳社保</span>
+              </label>
+            </div>
+            <div class="field-grid field-grid--two">
+              <label>
+                <span>核心团队成员 1</span>
+                <input id="coreMemberOneName" name="coreMemberOneName" placeholder="请输入姓名" />
+              </label>
+              <label>
+                <span>核心团队成员 2</span>
+                <input id="coreMemberTwoName" name="coreMemberTwoName" placeholder="请输入姓名" />
+              </label>
+              <label class="switch-field switch-field--wide">
+                <input id="coreTeamFullTimeQualified" name="coreTeamFullTimeQualified" type="checkbox" />
+                <span>两名核心成员全职，后期可缴纳社保</span>
+              </label>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="section-heading">
+              <span>04</span>
+              <h2>技术信息</h2>
+            </div>
+            <div class="field-grid">
+              <label>
+                <span>专利（项）</span>
+                <input id="patentCount" name="patentCount" inputmode="numeric" placeholder="例如 3" />
+              </label>
+              <label>
+                <span>论文（篇）</span>
+                <input id="paperCount" name="paperCount" inputmode="numeric" placeholder="例如 2" />
+              </label>
+              <label class="field-grid__wide">
+                <span>技术领域与产业方向</span>
+                <input id="combinedDirection" name="combinedDirection" placeholder="例如 高端医疗器械 / 人工智能 / 新材料" />
+              </label>
+              <label>
+                <span>项目阶段</span>
+                <select id="stage" name="stage">
+                  <option value="">请选择</option>
+                  <option>实验室</option>
+                  <option>原型</option>
+                  <option>量产</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="section-heading">
+              <span>05</span>
+              <h2>硬性条件检查</h2>
+            </div>
+            <div class="check-grid">
+              <label><input id="teamQualified" name="teamQualified" type="checkbox" />团队总人数≥3人（含申报人）</label>
+              <label><input id="ageQualified" name="ageQualified" type="checkbox" />年龄符合</label>
+              <label><input id="experienceQualified" name="experienceQualified" type="checkbox" />学历/经历符合</label>
+              <label><input id="shareQualified" name="shareQualified" type="checkbox" />持股≥20%</label>
+              <label><input id="landingXiaoshan" name="landingXiaoshan" type="checkbox" />落地萧山</label>
+              <label><input id="industryQualified" name="industryQualified" type="checkbox" />产业符合</label>
+            </div>
+          </section>
+
+          <section class="form-actions" aria-label="评估操作">
+            <button type="button" id="startEvaluation" class="primary-action">开始自主评估</button>
+            <button type="button" id="exportReport" class="secondary-action">导出补充信息报告</button>
+          </section>
+        </form>
+      </section>
+
+      <aside class="insight-panel" aria-label="评估结果">
+        <section class="result-block">
+          <div class="panel-title">
+            <div>
+              <p class="eyebrow">Evaluation</p>
+              <h2>预估等级</h2>
+            </div>
+            <output id="gradeOutput" class="grade-badge">待评估</output>
+          </div>
+          <p id="resultSummary" class="result-summary">填写表单并点击“开始自主评估”后，系统将生成预估等级和评估理由。</p>
+          <p id="fileReference" class="file-reference"></p>
+        </section>
+
+        <section class="result-block">
+          <div class="panel-title panel-title--inline">
+            <div>
+              <p class="eyebrow">Agent</p>
+              <h2>Agent建议</h2>
+            </div>
+            <button id="criteriaToggle" class="icon-button" type="button" aria-expanded="false" aria-controls="criteriaCard">?</button>
+          </div>
+          <div id="criteriaCard" class="criteria-card" hidden>
+            <strong>评估准则说明</strong>
+            <ul>
+              <li>持股 &lt; 20%：一票否决。</li>
+              <li>不可在萧山缴纳社保时，申报人持股需超过 50%。</li>
+              <li>除主申报人外，需两名核心团队成员全职且后期缴纳社保。</li>
+              <li>团队总人数少于 3 人（含申报人）、未落地萧山或产业不符合：不符合。</li>
+              <li>海外博士 + 核心专利/论文 + 原型或量产阶段：优先评为 A 类。</li>
+              <li>材料完整、技术有证明、团队与股权达标：通常为 B 类。</li>
+            </ul>
+          </div>
+          <div id="agentAdvice" class="advice-list">
+            <p>暂无建议。</p>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <section class="records-section result-block" aria-label="评估记录">
+      <div class="panel-title">
+        <div>
+          <p class="eyebrow">Records</p>
+          <h2>评估记录</h2>
+        </div>
+        <button id="clearRecords" type="button" class="text-button">清空</button>
+      </div>
+      <div id="recordList" class="record-list"></div>
+    </section>
+
+    <div id="detailModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+      <div class="modal__backdrop" data-close-modal></div>
+      <section class="modal__panel">
+        <div class="modal__header">
+          <div>
+            <p class="eyebrow">Record Detail</p>
+            <h2 id="modalTitle">项目评估详情</h2>
+          </div>
+          <button type="button" class="icon-button" data-close-modal aria-label="关闭详情">×</button>
+        </div>
+        <div id="modalContent" class="modal__content"></div>
+      </section>
+    </div>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

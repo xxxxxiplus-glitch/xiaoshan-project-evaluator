@@ -1,0 +1,18 @@
+{
+  "name": "xiaoshan-project-evaluator",
+  "version": "1.0.0",
+  "description": "A lightweight website for self-evaluating 5213-style incubator investment projects.",
+  "private": false,
+  "license": "MIT",
+  "keywords": [
+    "project-evaluation",
+    "incubator",
+    "investment",
+    "xiaoshan"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "node src/server.js",
+    "check": "node --check src/server.js"
+  }
+}
