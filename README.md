@@ -26,6 +26,16 @@ npm run dev
 http://127.0.0.1:3000/
 ```
 
+## 公网访问
+
+该项目可以通过 GitHub Pages 部署。当前仓库使用 `main` 分支的 `/docs` 目录作为发布源。
+
+公开访问地址：
+
+```text
+https://xxxxxiplus-glitch.github.io/xiaoshan-project-evaluator/
+```
+
 ## 代码检查
 
 ```bash

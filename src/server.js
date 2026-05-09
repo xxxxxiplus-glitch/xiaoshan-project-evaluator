@@ -4,7 +4,7 @@ import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const rootDir = fileURLToPath(new URL("..", import.meta.url));
-const publicDir = join(rootDir, "public");
+const publicDir = join(rootDir, "docs");
 const port = Number(process.env.PORT || 3000);
 
 const contentTypes = {
